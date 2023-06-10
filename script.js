@@ -26,8 +26,11 @@ function onReady() {
     $('#submit-button').on('click', addEmployeeInfo)
 
     $('#table-body').on('click', '.delete-button', deleteEmployeeInfo)
+
+
 }
 
+let salaryMonthlyTotal=0;
 // A 'Submit' button should collect the form information, store the information 
 // to calculate monthly costs, append information to the DOM and clear 
 // the input fields.
@@ -63,6 +66,17 @@ function addEmployeeInfo(event){
         </tr>
     `)
 
+    // Using the stored information, calculate monthly costs 
+    // and append this to the to DOM. If the total monthly cost exceeds $20,000, 
+    // add a red background color to the total monthly cost.
+    console.log('value to add to salary-monthly-total is:', `${annualSalaryInputValue}`/12)
+    console.log('(this) is: ', this)
+    $('#annual-salary-input').val('');
+    salaryMonthlyTotal = $('#salary-monthly-total} + `${annualSalaryInputValue}`/12;
+    console.log('salaryMonthlyTotal is: ', salaryMonthlyTotal)
+    $('#salary-monthly-total').append(`${salaryMonthlyTotal}`)
+
+
     // clear form
     $('#first-name-input').val('');
     $('#last-name-input').val('');
@@ -78,4 +92,14 @@ function deleteEmployeeInfo(){
     console.log('in deleteEmployeeInfo');
 
     $(this).parent().parent().remove();
+}
+
+
+// Using the stored information, calculate monthly costs 
+// and append this to the to DOM. If the total monthly cost exceeds $20,000, 
+// add a red background color to the total monthly cost.
+function totalMonthlyCost(){
+    console.log('in totalMonthlyCost');
+
+
 }
