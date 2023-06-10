@@ -1,7 +1,5 @@
 console.log('js loaded!');
 
-
-
 // ## Assignment
 
 // The application should have an input form that collects _employee 
