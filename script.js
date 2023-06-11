@@ -31,6 +31,8 @@ function onReady() {
 }
 
 let salaryMonthlyTotal=0;
+
+
 // A 'Submit' button should collect the form information, store the information 
 // to calculate monthly costs, append information to the DOM and clear 
 // the input fields.
@@ -66,15 +68,37 @@ function addEmployeeInfo(event){
         </tr>
     `)
 
+
+
     // Using the stored information, calculate monthly costs 
     // and append this to the to DOM. If the total monthly cost exceeds $20,000, 
     // add a red background color to the total monthly cost.
     console.log('value to add to salary-monthly-total is:', `${annualSalaryInputValue}`/12)
-    console.log('(this) is: ', this)
-    $('#annual-salary-input').val('');
-    salaryMonthlyTotal = $('#salary-monthly-total} + `${annualSalaryInputValue}`/12;
-    console.log('salaryMonthlyTotal is: ', salaryMonthlyTotal)
-    $('#salary-monthly-total').append(`${salaryMonthlyTotal}`)
+
+    // console.log('salaryMonthlyTotal before is: ', salaryMonthlyTotal)
+    // salaryMonthlyTotal = Number($('#salary-monthly-total').text() + `${annualSalaryInputValue}`/12);
+    // console.log('salaryMonthlyTotal after is: ', salaryMonthlyTotal)
+    
+    // $('#salary-monthly-total').val('');
+    // $('#salary-monthly-total').append(salaryMonthlyTotal);
+
+    console.log('salaryMonthlyTotal before is: ', salaryMonthlyTotal)
+    salaryMonthlyTotal = salaryMonthlyTotal + `${annualSalaryInputValue}`/12;
+    // Number($('#salary-monthly-total').text() + `${annualSalaryInputValue}`/12);
+    console.log('salaryMonthlyTotal after is: ', salaryMonthlyTotal)
+    $('#salary-monthly-total').text(salaryMonthlyTotal)
+
+    if(salaryMonthlyTotal > 20000){
+        $('#salary-monthly-total').css('background-color', 'red')
+    }
+
+
+
+    // $('#salary-monthly-total').append(function(salaryMonthlyTotal){
+    //     salaryMonthlyTotal++
+    //     return salaryMonthlyTotal;
+    //   });
+    // console.log('salaryMonthlyTotal after function is: ', salaryMonthlyTotal)
 
 
     // clear form
@@ -83,7 +107,11 @@ function addEmployeeInfo(event){
     $('#id-input').val('');
     $('#title-input').val('');
     $('#annual-salary-input').val('');
+
+
 }
+
+
 
 
 // Create a delete button that removes an employee from the DOM. For Base mode, 
