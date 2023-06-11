@@ -83,7 +83,7 @@ function addEmployeeInfo(event){
             <td>${idInputValue}</td>
             <td>${titleInputValue}</td>
             <td>${annualSalaryInputValue}</td>
-            <td><button class="delete-button">delete</button></td>
+            <td><button class="delete-button">Delete</button></td>
         </tr>
     `)
 

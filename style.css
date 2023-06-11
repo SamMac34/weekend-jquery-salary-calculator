@@ -1,19 +1,60 @@
 
 body {
     background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    background-color:rgb(45, 45, 45);
+    margin: 10%;
+    min-width: 620px;
+    max-width: 1200px;
 }
-h2 {
-    background-color: aquamarine;
+header {
+    background-color: grey;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
 }
 h3 {
-    background-color: grey;
+    padding-left: 0.5em;
+    margin-bottom: 5px;
+    margin-left: 30px;
 }
+#add-employee-h3 {
+    margin-left: auto;
+}
+
+
+/* FORM ELEMENTS */
+form {
+    margin-left: 30px;
+}
+input {
+    padding: 5px;
+    margin: 5px;
+    margin-left: 30px;
+    margin:5px;
+    width: 150px;
+}
+button {
+    padding: 2px;
+    display: block;
+    border-radius: 5px;
+    margin-right: 10%;
+    margin-left: auto;
+    margin-top: 10px;
+    width: 75px;
+    right: 20px;
+}
+
+
 /* TABLE */
 table {
-    width: 100%;
+    width: 90%;
+    border: 1px solid;
+    margin-left: 40px;
 }
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid;
+    border-collapse: collapse;
 }
 thead {
     background: darkgray;
@@ -22,10 +63,18 @@ tbody tr:nth-child(odd){
     background: white;
 }
 tbody tr:nth-child(even){
-    background: lightblue;
+    background: rgb(210, 229, 235);
 }
-
 #calculator {
     background-color:rgb(157, 225, 227);
     border: 1px solid black;
+}
+#monthly-total {
+    text-align: right;
+    margin-right: 20%;
+}
+.delete-button {
+    background-color: lightgray;
+    margin: 3px auto 3px auto;
+    border-radius: 5px;
 }
