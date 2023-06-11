@@ -1,9 +1,4 @@
-# Project Name
+Weekend JQuery Salary Calculator
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
-## Description
-
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Project Description:
+Create a calculator to keep track of employee information and annual salary.  Track total monthly salary costs and indicates when the cap of $20,000 is exceeded.
