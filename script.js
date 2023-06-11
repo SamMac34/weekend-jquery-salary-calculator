@@ -38,6 +38,11 @@ function onReady() {
 
 let salaryMonthlyTotal=0;
 
+let formatter =  Intl.NumberFormat( 'en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+});
+
 
 // A 'Submit' button should collect the form information, store the information 
 // to calculate monthly costs, append information to the DOM and clear 
@@ -48,32 +53,39 @@ function addEmployeeInfo(event){
 
     //collect and store form info
     let firstNameInputValue = $('#first-name-input').val();
-    console.log('firstNameInputValue is:', firstNameInputValue);
+    console.log('FirstNameInputValue is:', firstNameInputValue);
 
     let lastNameInputValue = $('#last-name-input').val();
-    console.log('lastNameInputValue is:', lastNameInputValue);
+    console.log('LastNameInputValue is:', lastNameInputValue);
 
     let idInputValue = $('#id-input').val();
-    console.log('idInputValue is:', idInputValue);
+    console.log('IDInputValue is:', idInputValue);
 
     let titleInputValue = $('#title-input').val();
-    console.log('titleInputValue is:', titleInputValue);
+    console.log('TitleInputValue is:', titleInputValue);
 
     let annualSalaryInputValue = $('#annual-salary-input').val();
-    console.log('annualSalaryInputValue is:', annualSalaryInputValue);
+    console.log('AnnualSalaryInputValue is:', annualSalaryInputValue);
 
-        // if(annualSalaryInputValue == NaN || ''){
-        //     console.log('Annual Salary must be a Number!:', annualSalaryInputValue);
-        //     // $('#first-name-input').val('');
-        //     // $('#last-name-input').val('');
-        //     // $('#id-input').val('');
-        //     // $('#title-input').val('');
-        //     // $('#annual-salary-input').val('');
-        //     return;
-        // }
-        // else {
-        //     console.log('Annual Salary is a Number:', annualSalaryInputValue);
-        // }
+//  If NaN is entered in Annual Salary input, exit function, etc.. Ran out of time. 
+//  Changed html input to type:number to avoid NaN.
+//  if(annualSalaryInputValue == NaN || ''){
+//     console.log('Annual Salary must be a Number!:', annualSalaryInputValue);
+//     $('#first-name-input').val('');
+//     $('#last-name-input').val('');
+//     $('#id-input').val('');
+//     $('#title-input').val('');
+//     $('#annual-salary-input').val('');
+//     return;
+//  }
+//  else {
+//     console.log('Annual Salary is a Number:', annualSalaryInputValue);
+//  }
+
+    // Format annualSalaryInputValue
+    formattedAnnualSalaryInputValue = formatter.format(annualSalaryInputValue);
+    console.log('Formatted AnnualSalaryInputValue is: ', formattedAnnualSalaryInputValue);
+
 
     // Append employee info into table
     $('#table-body').append(`
@@ -82,7 +94,7 @@ function addEmployeeInfo(event){
             <td>${lastNameInputValue}</td>
             <td>${idInputValue}</td>
             <td>${titleInputValue}</td>
-            <td>${annualSalaryInputValue}</td>
+            <td>${formattedAnnualSalaryInputValue}</td>
             <td><button class="delete-button">Delete</button></td>
         </tr>
     `)
@@ -90,23 +102,18 @@ function addEmployeeInfo(event){
 
     // Using the stored information, calculate monthly costs 
     // and append this to the to DOM.
-    console.log('value to add to salary-monthly-total is:', `${annualSalaryInputValue}`/12)
-    console.log('salaryMonthlyTotal before is: ', salaryMonthlyTotal)
+    console.log('value to add to salary-monthly-total is:', annualSalaryInputValue/12)
+    console.log('salaryMonthlyTotal is: ', salaryMonthlyTotal)
 
-    salaryMonthlyTotal += `${annualSalaryInputValue}`/12;
+    salaryMonthlyTotal += annualSalaryInputValue/12;
     console.log('salaryMonthlyTotal after is: ', salaryMonthlyTotal)
 
     // format salaryMonthlyTotal
-    // let formattedSalaryMonthlyTotal =  new Intl.NumberFormat('en-US', {
-    //     minimumFractionDigits: 2,
-    //     maximumFractionDigits: 2,
-    //     style: 'currency',
-    //     currency: 'USD',
-    // });
-    // console.log('formattedSalaryMonthlyTotal is: ', formattedSalaryMonthlyTotal);
+    let formattedSalaryMonthlyTotal = formatter.format(salaryMonthlyTotal);
+    console.log('formattedSalaryMonthlyTotal is: ', formattedSalaryMonthlyTotal);
 
     // Append salary-monthly-total
-    $('#salary-monthly-total').text(salaryMonthlyTotal)
+    $('#salary-monthly-total').text(formattedSalaryMonthlyTotal)
 
     // If the total monthly cost exceeds $20,000, add a red background color 
     // to the total monthly cost.
