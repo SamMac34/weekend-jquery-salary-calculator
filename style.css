@@ -54,6 +54,9 @@ table, th, td {
     border: 1px solid;
     border-collapse: collapse;
 }
+td, tr {
+    padding-left: 10px;
+}
 thead {
     background: darkgray;
 }
@@ -72,7 +75,7 @@ tbody tr:nth-child(even){
     margin-right: 20%;
 }
 .delete-button {
-    background-color: lightgray;
+    background-color: rgb(196, 133, 133);
     margin: 3px auto 3px auto;
     border-radius: 5px;
 }
