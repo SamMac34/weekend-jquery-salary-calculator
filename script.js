@@ -28,13 +28,11 @@ $(document).ready(onReady);
 function onReady() {
     console.log('JQuery loaded!');
 
-
     $('#submit-button').on('click', addEmployeeInfo)
 
     $('#table-body').on('click', '.delete-button', deleteEmployeeInfo)
-
-
 }
+
 
 let salaryMonthlyTotal=0;
 
@@ -80,12 +78,11 @@ function addEmployeeInfo(event){
 //  }
 //  else {
 //     console.log('Annual Salary is a Number:', annualSalaryInputValue);
-//  }
+// }
 
     // Format annualSalaryInputValue
     formattedAnnualSalaryInputValue = formatter.format(annualSalaryInputValue);
     console.log('Formatted AnnualSalaryInputValue is: ', formattedAnnualSalaryInputValue);
-
 
     // Append employee info into table
     $('#table-body').append(`
@@ -98,7 +95,6 @@ function addEmployeeInfo(event){
             <td><button class="delete-button">Delete</button></td>
         </tr>
     `)
-
 
     // Using the stored information, calculate monthly costs 
     // and append this to the to DOM.
@@ -127,8 +123,6 @@ function addEmployeeInfo(event){
     $('#id-input').val('');
     $('#title-input').val('');
     $('#annual-salary-input').val('');
-
-
 }
 
 
